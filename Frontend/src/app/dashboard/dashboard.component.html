@@ -1,0 +1,24 @@
+<p>dashboard works!</p>
+
+<div class="dashboard">
+    <h2>Documents Dashboard</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Verification Code</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let document of documents">
+          <td>{{ document.title }}</td>
+          <td>{{ document.verificationCode }}</td>
+          <td>{{ document.status }}</td>
+          <td><button>View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

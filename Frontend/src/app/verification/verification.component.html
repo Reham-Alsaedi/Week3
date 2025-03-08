@@ -1,0 +1,12 @@
+<p>verification works!</p>
+
+<div class="verification-form">
+    <h2>Verify Document</h2>
+    <form [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+      <label for="verificationCode">Verification Code</label>
+      <input id="verificationCode" formControlName="verificationCode" type="text" required />
+  
+      <button type="submit" [disabled]="verificationForm.invalid">Verify</button>
+    </form>
+  </div>
+  

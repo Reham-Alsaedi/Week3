@@ -1,0 +1,28 @@
+<p>document-upload works!</p>
+
+<div class="upload-form">
+  <h2>Upload Document</h2>
+  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Title Input -->
+    <label for="title">Title</label>
+    <input id="title" formControlName="title" type="text" required />
+    <div class="error" *ngIf="title?.invalid && title?.touched">
+      <span *ngIf="title?.errors?.['required']">Title is required.</span>
+      <span *ngIf="title?.errors?.['minlength']">Title must be at least 3 characters long.</span>
+    </div>
+
+    <!-- File Upload -->
+    <label for="file">Select Document</label>
+    <input id="file" type="file" (change)="onFileChange($event)" required />
+    <div class="error" *ngIf="file?.invalid && file?.touched">
+      <span *ngIf="file?.errors?.['required']">A file is required.</span>
+    </div>
+
+    <button type="submit" [disabled]="uploadForm.invalid || isUploading">
+      {{ isUploading ? 'Uploading...' : 'Upload' }}
+    </button>
+  </form>
+</div>
+
+  
